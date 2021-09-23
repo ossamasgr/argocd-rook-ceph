@@ -1,12 +1,13 @@
-kind: PersistentVolumeClaim
 apiVersion: v1
+kind: PersistentVolumeClaim
 metadata:
-  name: pvc-rook-ceph
+  name: mysql-pv-claim
+  labels:
+    app: wordpress
 spec:
   storageClassName: rook-ceph-block
   accessModes:
-    - ReadWriteOnce
+  - ReadWriteOnce
   resources:
     requests:
-      storage: 10Gi
-  storageClassName: rook-ceph
+      storage: 20Gi
